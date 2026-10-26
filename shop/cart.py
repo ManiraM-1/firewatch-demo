@@ -22,7 +22,7 @@ class Cart:
         return round(sum(line["price"] * line["qty"] for line in self.lines), 2)
 
     def tax(self):
-        return round(sum(line["price"] * line["qty"] * rate_for(line["category"]) / 100 for line in self.lines), 2)
+        return round(sum(line["price"] * line["qty"] * rate_for(line["category"]) for line in self.lines), 2)
 
     def discount(self):
         amount = self.subtotal()
